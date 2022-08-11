@@ -104,7 +104,7 @@
 				printf("Error loading character set utf8mb4: %s\n", mysqli_error($link));
 				exit();
 			}
-	
+
 			$namo = $beschreibung = $beispiel = $art = "";
 
 			$sql = "INSERT INTO phpwiki(namo,beschreibung,beispiel,art) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE 
