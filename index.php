@@ -76,4 +76,22 @@ if (!mysqli_set_charset($link, "utf8mb4")) {									// Zeichensatz zu utf8mb4 w
 			} else {
 				echo "Es gibt " .$queryResult." Ergebnisse!";			// ... oder plural auszugeben
 			}
+		echo "</div>";
+			echo "</div>";
+			if ($queryResults > 0) {									// Abfrage ob Ergebnisse vorliegen und anschlie�ende ausgabe dieser
+				echo "<div class='command-container'>";
+				while ($row = mysqli_fetch_assoc($result)) {
+					echo "<div class='Klasse'>
+					<p class='Art'>".$row['Art']."</p>
+					<h3>".$row['namo']."</h3>
+					<p>".$row['beschreibung']."</p>
+					<p class='bspl'>".$row['beispiel']."</p>
+				  </div>";
+				}
+				echo "</div>";
+			}
 		}
+	?>
+	</main>
+</body>
+</html>
