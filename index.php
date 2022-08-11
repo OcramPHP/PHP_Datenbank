@@ -37,7 +37,7 @@ if (!mysqli_set_charset($link, "utf8mb4")) {									// Zeichensatz zu utf8mb4 w
 				<li><a class="insert-link" href="insert.php">Datensatz hinzufügen</a></li><br>
 				<li>
 				<form style="padding:0;" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">		<!-- '<form>'-Tag mit Suchleiste & Button -->
-					<input class='input' type="text" name="search" placeholder="PHP Dinge ..."><br><br>						<!-- '<input>'-Tag die eigentliche Suchleiste -->
+					<input class='input' type="text" name="search" placeholder="PHP Dinge ..."><br><br>									<!-- '<input>'-Tag die eigentliche Suchleiste -->
 					<button type="submit" name="submit-search">Suchen</button>												<!-- '<button>'-Tag startet Suche -->
 				</form>
 				</li>
@@ -77,7 +77,7 @@ if (!mysqli_set_charset($link, "utf8mb4")) {									// Zeichensatz zu utf8mb4 w
 			} else {
 				echo "Es gibt " .$queryResult." Ergebnisse!";			// ... oder plural auszugeben
 			}
-		echo "</div>";
+			echo "</div>";
 			echo "</div>";
 			if ($queryResults > 0) {									// Abfrage ob Ergebnisse vorliegen und anschließende ausgabe dieser
 				echo "<div class='command-container'>";
