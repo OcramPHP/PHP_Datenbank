@@ -10,7 +10,7 @@
 
 	$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);			// Verbindung zu MySQL aufbauen
 
-if($link === false){															// Verbindung pr�fen
+if($link === false){															// Verbindung prüfen
 	die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
@@ -34,21 +34,22 @@ if (!mysqli_set_charset($link, "utf8mb4")) {									// Zeichensatz zu utf8mb4 w
 		<div class="center">
 			<h1>PHP WIKI</h1>
 			<ul>
-				<li><a class="insert-link" href="insert.php">Datensatz hinzuf�gen</a></li><br>
+				<li><a class="insert-link" href="insert.php">Datensatz hinzufügen</a></li><br>
 				<li>
 				<form style="padding:0;" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">		<!-- '<form>'-Tag mit Suchleiste & Button -->
-					<input class='input' type="text" name="search" placeholder="PHP Dinge ..."><br><br>									<!-- '<input>'-Tag die eigentliche Suchleiste -->
+					<input class='input' type="text" name="search" placeholder="PHP Dinge ..."><br><br>						<!-- '<input>'-Tag die eigentliche Suchleiste -->
 					<button type="submit" name="submit-search">Suchen</button>												<!-- '<button>'-Tag startet Suche -->
 				</form>
 				</li>
 			</ul>
 		</div>
 	</header>
+
 	<main class="php">
 
 	<?php
 		$sql = "SELECT * FROM phpwiki;";										// Es wird alles aus der Tabelle 'phpwiki' in $sql gespeichert
-		$ergebnis = mysqli_query($link, $sql);									// Hier wird die eigentliche Abfrage in der Datenbank ausgef�hrt
+		$ergebnis = mysqli_query($link, $sql);									// Hier wird die eigentliche Abfrage in der Datenbank ausgeführt
 		//$spaltennamen = array('namo', 'beschreibung','beispiel','Art');
 		$queryResults = mysqli_num_rows($ergebnis);								// In $queryResults wird die Anzahl an Werten aus $ergebnis gespeichert
 
@@ -64,9 +65,9 @@ if (!mysqli_set_charset($link, "utf8mb4")) {									// Zeichensatz zu utf8mb4 w
 			}
 			echo "</div>";
 		} else {
-			$search = mysqli_real_escape_string($link, $_POST['search']);						// Die Nutzereingabe wird untersucht und Zeichen die interpretiert werden w�rden, werden mit Escapezeichen versehen werden
+			$search = mysqli_real_escape_string($link, $_POST['search']);						// Die Nutzereingabe wird untersucht und Zeichen die interpretiert werden würden, werden mit Escapezeichen versehen werden
 			$sql = "SELECT * FROM phpwiki WHERE namo LIKE '%$search%' or beschreibung LIKE 
-				   '%$search%' or beispiel LIKE '%$search%' or Art LIKE '%$search%'";			// mit LIKE und %-Zeichen vor und nach dem Suchbegriff, wird alles was diese Zeichenfolge enth�lt, egal ob gro� oder klein geschrieben, ausgegeben
+				   '%$search%' or beispiel LIKE '%$search%' or Art LIKE '%$search%'";			// mit LIKE und %-Zeichen vor und nach dem Suchbegriff, wird alles was diese Zeichenfolge enthält, egal ob groß oder klein geschrieben, ausgegeben
 			$result = mysqli_query($link, $sql);
 			$queryResult = mysqli_num_rows($result);
 			echo "<div class='result-text'>";
@@ -78,7 +79,7 @@ if (!mysqli_set_charset($link, "utf8mb4")) {									// Zeichensatz zu utf8mb4 w
 			}
 		echo "</div>";
 			echo "</div>";
-			if ($queryResults > 0) {									// Abfrage ob Ergebnisse vorliegen und anschlie�ende ausgabe dieser
+			if ($queryResults > 0) {									// Abfrage ob Ergebnisse vorliegen und anschließende ausgabe dieser
 				echo "<div class='command-container'>";
 				while ($row = mysqli_fetch_assoc($result)) {
 					echo "<div class='Klasse'>
