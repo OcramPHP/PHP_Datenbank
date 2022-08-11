@@ -1,15 +1,10 @@
 <?php
 	// mit dieser Datei soll eine Verbindung zur Datenbank aufgebaut werden
-	//define('DB_SERVER', 'localhost');
-	//define('DB_USERNAME', 'root');
-	//define('DB_PASSWORD', 'tunix');
-	//define('DB_NAME', 'php');
-
 	define('DB_SERVER', 'localhost');
-	define('DB_USERNAME', 'web54_thomas');
-	define('DB_PASSWORD', 'CTC_Thomas2022!');
-	define('DB_NAME', 'web54_thomas_test');
-	
+	define('DB_USERNAME', 'root');
+	define('DB_PASSWORD', 'tunix');
+	define('DB_NAME', 'php');
+
 	// Attempt to connect to MySQL database 
 	$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 	
