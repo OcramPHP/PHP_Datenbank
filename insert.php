@@ -81,3 +81,26 @@
 			</ul>
 		</div>
 	</header>
+
+		<?php
+			// Database credentials. Assuming you are running MySQL
+			// server with default setting (user 'root' with password 'CTC-Lohr')
+			// mit dieser Datei soll eine Verbindung zur Datenbank aufgebaut werden
+			define('DB_SERVER', 'localhost');
+			define('DB_USERNAME', 'root');
+			define('DB_PASSWORD', 'tunix');
+			define('DB_NAME', 'php');
+			
+			// Attempt to connect to MySQL database 
+			$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+			
+			// Check connection
+			if($link === false){
+				die("ERROR: Could not connect. " . mysqli_connect_error());
+			}
+			
+			// change character set to utf8mb4 
+			if (!mysqli_set_charset($link, "utf8mb4")) {
+				printf("Error loading character set utf8mb4: %s\n", mysqli_error($link));
+				exit();
+			}
