@@ -44,3 +44,36 @@ if (!mysqli_set_charset($link, "utf8mb4")) {									// Zeichensatz zu utf8mb4 w
 			</ul>
 		</div>
 	</header>
+	<main class="php">
+
+	<?php
+		$sql = "SELECT * FROM phpwiki;";										// Es wird alles aus der Tabelle 'phpwiki' in $sql gespeichert
+		$ergebnis = mysqli_query($link, $sql);									// Hier wird die eigentliche Abfrage in der Datenbank ausgef�hrt
+		//$spaltennamen = array('namo', 'beschreibung','beispiel','Art');
+		$queryResults = mysqli_num_rows($ergebnis);								// In $queryResults wird die Anzahl an Werten aus $ergebnis gespeichert
+
+		if (!isset($_POST['submit-search'])) {									// Eine Abfrage ob der 'Suchen'-Button geklickt wurde
+			echo "<div class='command-container'><br>";
+			while ($row = mysqli_fetch_assoc($ergebnis)) {						// Solange weitere Ergebnisse vorliegen werden alle Spalten der Tabelle ausgegeben
+				echo "<div class='Klasse'>
+						<p class='Art'>".$row['Art']."</p>
+						<h3>".$row['namo']."</h3>
+						<p>".$row['beschreibung']."</p>
+						<p class='bspl'>".$row['beispiel']."</p>
+					  </div>";
+			}
+			echo "</div>";
+		} else {
+			$search = mysqli_real_escape_string($link, $_POST['search']);						// Die Nutzereingabe wird untersucht und Zeichen die interpretiert werden w�rden, werden mit Escapezeichen versehen werden
+			$sql = "SELECT * FROM phpwiki WHERE namo LIKE '%$search%' or beschreibung LIKE 
+				   '%$search%' or beispiel LIKE '%$search%' or Art LIKE '%$search%'";			// mit LIKE und %-Zeichen vor und nach dem Suchbegriff, wird alles was diese Zeichenfolge enth�lt, egal ob gro� oder klein geschrieben, ausgegeben
+			$result = mysqli_query($link, $sql);
+			$queryResult = mysqli_num_rows($result);
+			echo "<div class='result-text'>";
+			echo "<div class='kind-result-text'>";
+			if ($queryResult == 1) {									// Abfrage ob genau ein Ergebnis vorliegt ...
+				echo "Es gibt " .$queryResult." Ergebnis!";				// ... um 'Ergebnis' mit der Anzahl im singular ...
+			} else {
+				echo "Es gibt " .$queryResult." Ergebnisse!";			// ... oder plural auszugeben
+			}
+		}
