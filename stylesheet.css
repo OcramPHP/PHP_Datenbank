@@ -1,0 +1,140 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0; 
+    padding: 0;
+    background-color: #fff;
+    width: 100%;
+    background-image: url("php_code_grayish.png");
+    vertical-align: middle;
+}
+
+header {
+    padding-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #222;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li form {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.center {
+    min-width: 300px;
+    background-color: #222;
+    align-self: center;
+    padding: 2%;
+}
+
+.php {
+    background-color: #222;
+}
+
+.Klasse {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #444;
+    color: #fff;
+}
+    
+.command-container {
+    max-width: 100%;
+    background-color: #222;
+    padding: 30px;
+}
+
+.command-box {
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+input {
+    text-align: center;
+    max-width: 100%;
+    min-width: 97%;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+}
+
+.bspl {
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.Art {
+    font-style: italic;
+    font-size: small;
+    color: #aaa;
+    margin-bottom: -15px;
+}
+
+.insert-link {
+    background-color: #111;
+}
+
+.result-text {
+    padding-top: 1%;
+    padding-bottom: -1%;
+    margin-bottom: -1%;
+    max-width: 100%;
+    color: #fff;
+    background-color: #222;
+    display: flex;
+    
+}
+
+.kind-result-text {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#art {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.insert-button {
+    height: 40px;
+    font-size: 20px;
+    background-color: #90e9ff;
+    border: none;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    background-color: #90e9ff;
+    border: none;
+}
